@@ -1,21 +1,10 @@
-# Azure Firewall Manager secured virtual hub Quickstart
-
-![Azure Public Test Date](https://azurequickstartsservice.blob.core.windows.net/badges/fwm-docs-qs/PublicLastTestDate.svg)
-![Azure Public Test Result](https://azurequickstartsservice.blob.core.windows.net/badges/fwm-docs-qs/PublicDeployment.svg)
-
-![Azure US Gov Last Test Date](https://azurequickstartsservice.blob.core.windows.net/badges/fwm-docs-qs/FairfaxLastTestDate.svg)
-![Azure US Gov Last Test Result](https://azurequickstartsservice.blob.core.windows.net/badges/fwm-docs-qs/FairfaxDeployment.svg)
-   
-![Best Practice Check](https://azurequickstartsservice.blob.core.windows.net/badges/fwm-docs-qs/BestPracticeResult.svg)
-![Cred Scan Check](https://azurequickstartsservice.blob.core.windows.net/badges/fwm-docs-qs/CredScanResult.svg)
+# Quickstart: Azure Firewall Manager secured virtual hubs  
     
-    
-[![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Ffwm-docs-qs%2Fazuredeploy.json)
-[![Visualize](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/visualizebutton.svg?sanitize=true)](http://armviz.io/#/?load=https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Ffwm-docs-qs%2Fazuredeploy.json)
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FDazzleJim%2FAzureArmTemplateDemos%2Fmain%2FvWanDemo%2Fazuredeploy.json)
 
-This template creates a secured virtual hub using Azure Firewall to secure your cloud network traffic destined to the Internet. The firewall has an application rule that allows web traffic to 'www.microsoft.com'.
+![Graphic]
 
-The jump server and workload server virtual machines are *Standard_D2s_v3* virtual machines running Windows Server 2019.
+This template creates an Azure Virtual WAN with two secured virtual hubs using Azure Firewall to secure your cloud network traffic destined to the Internet. The firewall has an application rule that allows web traffic to 'www.microsoft.com'.
 
 ## Deployment steps
 
@@ -23,6 +12,16 @@ You can select **Deploy to Azure** at the top of this document or follow the ins
 
 ## Notes
 
-This template is used by the Azure Firewall Manager documentation Quick Start article.
+Default values are included however if you wish to customize these then edit the parameter file to set your own hub regions, naming convention and network CIDR address ranges.
+
+This ARM template is an extention of the [Azure QuickStart Firewall template][QuickStart].
 
 `Tags: Azure Firewall Manager`
+
+<!-- References -->
+
+<!-- Local -->
+[Graphic]: docs/vWANDemo.png
+
+<!-- External -->
+[QuickStart]: https://github.com/Azure/azure-quickstart-templates/tree/master/fwm-docs-qs
