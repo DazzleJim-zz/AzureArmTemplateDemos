@@ -8,7 +8,7 @@ This template creates an Azure Virtual WAN with two secured virtual hubs using A
 
 ## Deployment steps
 
-You can select **Deploy to Azure** at the top of this document or follow the instructions for command line deployment using the scripts in the root of this repo.
+You can select **Deploy to Azure** at the top of this document or deploy the ARM template and parameter file using your own method such as PowerShell, CLI or Azure DevOps Pipeline.
 
 ## Notes
 
