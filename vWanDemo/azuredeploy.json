@@ -4,174 +4,203 @@
   "parameters": {
     "location1": {
       "type": "String",
+      "defaultValue": "australiaeast",
       "metadata": {
         "description": "Location for Prod resources."
       }
     },
     "location2": {
       "type": "String",
+      "defaultValue": "australiasoutheast",
       "metadata": {
         "description": "Location for Test resources."
       }
     },    
     "vWanName": {
       "type": "string",
+      "defaultValue": "vWAN-Demo",  
       "metadata": {
         "description": "Name of the Virtual WAN."
       }
     },    
     "fwHub01": {
       "type": "string",
+      "defaultValue": "fwHub-01-prod",      
       "metadata": {
         "description": "Name of the Firewll instance in Hub 01."
       }
     },
     "fwHub02": {
       "type": "string",
+      "defaultValue": "fwHub-02-test",      
       "metadata": {
         "description": "Name of the Firewll instance in Hub 02."
       }
     },
     "policy01": {
       "type": "string",
+      "defaultValue": "policy-01-prod",      
       "metadata": {
         "description": "Name of the policy for Firewall 0l."
       }
     },
     "policy02": {
       "type": "string",
+      "defaultValue": "policy-02-test"      
       "metadata": {
         "description": "Name of the policy for Firewall 02."
       }
     },    
     "hub01": {
       "type": "string",
+      "defaultValue": "hub-01-prod",      
       "metadata": {
         "description": "Name of Hub 01."
       }
     },
     "hub01NetworkPrefix": {
       "type": "string",
+      "defaultValue": "10.1.0.0/16",      
       "metadata": {
         "description": "IP address prefix for Hub 01."
       }
     },    
     "hub02": {
       "type": "string",
+      "defaultValue": "hub-02-test",      
        "metadata": {
         "description": "Name of Hub 02."
       }
     },
     "hub02NetworkPrefix": {
       "type": "string",
+      "defaultValue": "10.2.0.0/16",      
       "metadata": {
         "description": "IP address prefix for Hub 01."
       }
     },      
     "spoke01-prod": {
       "type": "string",
+      "defaultValue": "spoke-01-prod",      
       "metadata": {
         "description": "Name of production spoke 01."
       }
     },
     "spoke01NetworkPrefix-prod": {
       "type": "string",
+      "defaultValue": "10.11.0.0/16",      
       "metadata": {
         "description": "IP address prefix for production spoke 01 networo."
       }
     },
     "spoke01SubnetPrefix-prod": {
       "type": "string",
+      "defaultValue": "10.11.0.0/24",     
       "metadata": {
         "description": "IP address prefix for production spoke 01 subnet."
       }
     },       
     "spoke02-prod": {
       "type": "string",
+      "defaultValue": "spoke-02-prod",      
       "metadata": {
         "description": "Name of production spoke 02."
       }
     },
     "spoke02NetworkPrefix-prod": {
       "type": "string",
+      "defaultValue": "10.12.0.0/16",      
       "metadata": {
         "description": "IP address prefix for production spoke 02 network."
       }
     },
     "spoke02SubnetPrefix-prod": {
       "type": "string",
+      "defaultValue": "10.12.0.0/24",      
       "metadata": {
         "description": "IP address prefix for production spoke 02 subnet."
       }
     },     
     "spoke03-prod": {
       "type": "string",
+      "defaultValue": "spoke-03-prod",      
       "metadata": {
         "description": "Name of production spoke 03."
       }
     },
     "spoke03NetworkPrefix-prod": {
       "type": "string",
+      "defaultValue": "10.13.0.0/16",      
       "metadata": {
         "description": "IP address prefix for production spoke 03 network."
       }
     },
     "spoke03SubnetPrefix-prod": {
       "type": "string",
+      "defaultValue": "10.13.0.0/24",      
       "metadata": {
         "description": "IP address prefix for production spoke 03 subnet."
       }
     },     
     "spoke01-test": {
       "type": "string",
+      "defaultValue": "spoke-01-test",      
       "metadata": {
         "description": "Name of test spoke 01."
       }
     },
     "spoke01NetworkPrefix-test": {
       "type": "string",
+      "defaultValue": "10.21.0.0/16",      
       "metadata": {
         "description": "IP address prefix for test spoke 01 network."
       }
     },
     "spoke01SubnetPrefix-test": {
       "type": "string",
+      "defaultValue": "10.21.0.0/24",      
       "metadata": {
         "description": "IP address prefix for test spoke 01 subnet."
       }
     },     
     "spoke02-test": {
       "type": "string",
+      "defaultValue": "spoke-02-test",      
       "metadata": {
         "description": "Name of test spoke 02."
       }
     },
     "spoke02NetworkPrefix-test": {
       "type": "string",
+      "defaultValue": "10.22.0.0/16",      
       "metadata": {
         "description": "IP address prefix for test spoke 02 network."
       }
     },
     "spoke02SubnetPrefix-test": {
       "type": "string",
+      "defaultValue": "10.22.0.0/24",      
       "metadata": {
         "description": "IP address prefix for test spoke 02 subnet."
       }
     },      
     "spoke03-test": {
       "type": "string",
+      "defaultValue": "spoke-03-test",      
         "metadata": {
         "description": "Name of test spoke 03."
       }
     },
     "spoke03NetworkPrefix-test": {
       "type": "string",
+      "defaultValue": "10.23.0.0/16",      
       "metadata": {
         "description": "IP address prefix for test spoke 03 network."
       }
     },
     "spoke03SubnetPrefix-test": {
       "type": "string",
+      "defaultValue": "10.23.0.0/24",      
       "metadata": {
         "description": "IP address prefix for test spoke 03 subnet."
       }
