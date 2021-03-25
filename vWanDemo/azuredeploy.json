@@ -1,0 +1,611 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "location1": {
+      "type": "String",
+      "metadata": {
+        "description": "Location for Prod resources."
+      }
+    },
+    "location2": {
+      "type": "String",
+      "metadata": {
+        "description": "Location for Test resources."
+      }
+    },    
+    "vWanName": {
+      "type": "string",
+      "metadata": {
+        "description": "Name of the Virtual WAN."
+      }
+    },    
+    "fwHub01": {
+      "type": "string",
+      "metadata": {
+        "description": "Name of the Firewll instance in Hub 01."
+      }
+    },
+    "fwHub02": {
+      "type": "string",
+      "metadata": {
+        "description": "Name of the Firewll instance in Hub 02."
+      }
+    },
+    "policy01": {
+      "type": "string",
+      "metadata": {
+        "description": "Name of the policy for Firewall 0l."
+      }
+    },
+    "policy02": {
+      "type": "string",
+      "metadata": {
+        "description": "Name of the policy for Firewall 02."
+      }
+    },    
+    "hub01": {
+      "type": "string",
+      "metadata": {
+        "description": "Name of Hub 01."
+      }
+    },
+    "hub01NetworkPrefix": {
+      "type": "string",
+      "metadata": {
+        "description": "IP address prefix for Hub 01."
+      }
+    },    
+    "hub02": {
+      "type": "string",
+       "metadata": {
+        "description": "Name of Hub 02."
+      }
+    },
+    "hub02NetworkPrefix": {
+      "type": "string",
+      "metadata": {
+        "description": "IP address prefix for Hub 01."
+      }
+    },      
+    "spoke01-prod": {
+      "type": "string",
+      "metadata": {
+        "description": "Name of production spoke 01."
+      }
+    },
+    "spoke01NetworkPrefix-prod": {
+      "type": "string",
+      "metadata": {
+        "description": "IP address prefix for production spoke 01 networo."
+      }
+    },
+    "spoke01SubnetPrefix-prod": {
+      "type": "string",
+      "metadata": {
+        "description": "IP address prefix for production spoke 01 subnet."
+      }
+    },       
+    "spoke02-prod": {
+      "type": "string",
+      "metadata": {
+        "description": "Name of production spoke 02."
+      }
+    },
+    "spoke02NetworkPrefix-prod": {
+      "type": "string",
+      "metadata": {
+        "description": "IP address prefix for production spoke 02 network."
+      }
+    },
+    "spoke02SubnetPrefix-prod": {
+      "type": "string",
+      "metadata": {
+        "description": "IP address prefix for production spoke 02 subnet."
+      }
+    },     
+    "spoke03-prod": {
+      "type": "string",
+      "metadata": {
+        "description": "Name of production spoke 03."
+      }
+    },
+    "spoke03NetworkPrefix-prod": {
+      "type": "string",
+      "metadata": {
+        "description": "IP address prefix for production spoke 03 network."
+      }
+    },
+    "spoke03SubnetPrefix-prod": {
+      "type": "string",
+      "metadata": {
+        "description": "IP address prefix for production spoke 03 subnet."
+      }
+    },     
+    "spoke01-test": {
+      "type": "string",
+      "metadata": {
+        "description": "Name of test spoke 01."
+      }
+    },
+    "spoke01NetworkPrefix-test": {
+      "type": "string",
+      "metadata": {
+        "description": "IP address prefix for test spoke 01 network."
+      }
+    },
+    "spoke01SubnetPrefix-test": {
+      "type": "string",
+      "metadata": {
+        "description": "IP address prefix for test spoke 01 subnet."
+      }
+    },     
+    "spoke02-test": {
+      "type": "string",
+      "metadata": {
+        "description": "Name of test spoke 02."
+      }
+    },
+    "spoke02NetworkPrefix-test": {
+      "type": "string",
+      "metadata": {
+        "description": "IP address prefix for test spoke 02 network."
+      }
+    },
+    "spoke02SubnetPrefix-test": {
+      "type": "string",
+      "metadata": {
+        "description": "IP address prefix for test spoke 02 subnet."
+      }
+    },      
+    "spoke03-test": {
+      "type": "string",
+        "metadata": {
+        "description": "Name of test spoke 03."
+      }
+    },
+    "spoke03NetworkPrefix-test": {
+      "type": "string",
+      "metadata": {
+        "description": "IP address prefix for test spoke 03 network."
+      }
+    },
+    "spoke03SubnetPrefix-test": {
+      "type": "string",
+      "metadata": {
+        "description": "IP address prefix for test spoke 03 subnet."
+      }
+    }          
+    },
+    "resources": [
+    {
+      "type": "Microsoft.Network/virtualWans",
+      "apiVersion": "2019-08-01",
+      "name": "[parameters('vWanName')]",
+      "location": "[parameters('location1')]",
+      "properties": {
+        "disableVpnEncryption": false,
+        "allowBranchToBranchTraffic": true,
+        "allowVnetToVnetTraffic": false,
+        "office365LocalBreakoutCategory": "None",
+        "type": "Standard"
+      }
+    },
+    {
+      "type": "Microsoft.Network/virtualHubs",
+      "apiVersion": "2020-04-01",
+      "name": "[parameters('hub01')]",
+      "location": "[parameters('location1')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/virtualWans', parameters('vWanName'))]"
+      ],
+      "properties": {
+        "virtualNetworkConnections": [
+          {
+            "name": "hub01-spoke01-prod",
+            "properties": {
+              "remoteVirtualNetwork": {
+                "id": "[resourceId('Microsoft.Network/virtualNetworks', parameters('spoke01-prod'))]"
+              },
+              "allowHubToRemoteVnetTransit": true,
+              "allowRemoteVnetToUseHubVnetGateways": false,
+              "enableInternetSecurity": true
+            }
+          },
+          {
+            "name": "hub01-spoke02-prod",
+            "properties": {
+              "remoteVirtualNetwork": {
+                "id": "[resourceId('Microsoft.Network/virtualNetworks', parameters('spoke02-prod'))]"
+              },
+              "allowHubToRemoteVnetTransit": true,
+              "allowRemoteVnetToUseHubVnetGateways": false,
+              "enableInternetSecurity": true
+            }
+          },
+          {
+            "name": "hub01-spoke03-prod",
+            "properties": {
+              "remoteVirtualNetwork": {
+                "id": "[resourceId('Microsoft.Network/virtualNetworks', parameters('spoke03-prod'))]"
+              },
+              "allowHubToRemoteVnetTransit": true,
+              "allowRemoteVnetToUseHubVnetGateways": false,
+              "enableInternetSecurity": true
+            }
+          }                    
+        ],
+        "addressPrefix": "[parameters('hub01NetworkPrefix')]",
+        "virtualWan": {
+          "id": "[resourceId('Microsoft.Network/virtualWans', parameters('vWanName'))]"
+        },
+        "azureFirewall": {
+          "id": "[resourceId('Microsoft.Network/azureFirewalls', parameters('fwHub01'))]"
+        }
+      }
+    },
+    {
+      "type": "Microsoft.Network/virtualHubs",
+      "apiVersion": "2020-04-01",
+      "name": "[parameters('hub02')]",
+      "location": "[parameters('location2')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/virtualWans', parameters('vWanName'))]"
+      ],
+      "properties": {
+        "virtualNetworkConnections": [
+          {
+            "name": "hub02-spoke01-test",
+            "properties": {
+              "remoteVirtualNetwork": {
+                "id": "[resourceId('Microsoft.Network/virtualNetworks', parameters('spoke01-test'))]"
+              },
+              "allowHubToRemoteVnetTransit": true,
+              "allowRemoteVnetToUseHubVnetGateways": false,
+              "enableInternetSecurity": true
+            }
+          },
+          {
+            "name": "hub02-spoke02-test",
+            "properties": {
+              "remoteVirtualNetwork": {
+                "id": "[resourceId('Microsoft.Network/virtualNetworks', parameters('spoke02-test'))]"
+              },
+              "allowHubToRemoteVnetTransit": true,
+              "allowRemoteVnetToUseHubVnetGateways": false,
+              "enableInternetSecurity": true
+            }
+          },
+          {
+            "name": "hub02-spoke03-test",
+            "properties": {
+              "remoteVirtualNetwork": {
+                "id": "[resourceId('Microsoft.Network/virtualNetworks', parameters('spoke03-test'))]"
+              },
+              "allowHubToRemoteVnetTransit": true,
+              "allowRemoteVnetToUseHubVnetGateways": false,
+              "enableInternetSecurity": true
+            }
+          }                    
+        ],
+        "addressPrefix": "[parameters('hub02NetworkPrefix')]",
+        "virtualWan": {
+          "id": "[resourceId('Microsoft.Network/virtualWans', parameters('vWanName'))]"
+        },
+        "azureFirewall": {
+          "id": "[resourceId('Microsoft.Network/azureFirewalls', parameters('fwHub02'))]"
+        }
+      }
+    },  
+    {
+      "type": "Microsoft.Network/firewallPolicies",
+      "apiVersion": "2019-08-01",
+      "name": "[parameters('policy01')]",
+      "location": "[parameters('location1')]",
+      "properties": {
+        "threatIntelMode": "Alert"
+      }
+    },
+    {
+      "type": "Microsoft.Network/firewallPolicies/ruleGroups",
+      "apiVersion": "2019-08-01",
+      "name": "[concat(parameters('policy01'),'/DefaultApplicationRuleCollectionGroup')]",
+      "location": "[parameters('location1')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/firewallPolicies',parameters('policy01'))]"
+      ],
+      "properties": {
+        "priority": 300,
+        "rules": [
+          {
+            "name": "RC-01",
+            "priority": 100,
+            "ruleType": "FirewallPolicyFilterRule",
+            "action": {
+              "type": "Allow"
+            },
+            "ruleConditions": [
+              {
+                "name": "Allow-msft",
+                "protocols": [
+                  {
+                    "protocolType": "http",
+                    "port": 80
+                  },
+                  {
+                    "protocolType": "https",
+                    "port": 443
+                  }
+                ],
+                "sourceAddresses": [
+                  "*"
+                ],
+                "targetFqdns": [
+                  "*.microsoft.com"
+                ],
+                "ruleConditionType": "ApplicationRuleCondition"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "type": "Microsoft.Network/firewallPolicies",
+      "apiVersion": "2019-08-01",
+      "name": "[parameters('policy02')]",
+      "location": "[parameters('location2')]",
+      "properties": {
+        "threatIntelMode": "Alert"
+      }
+    },
+    {
+      "type": "Microsoft.Network/firewallPolicies/ruleGroups",
+      "apiVersion": "2019-08-01",
+      "name": "[concat(parameters('policy02'),'/DefaultApplicationRuleCollectionGroup')]",
+      "location": "[parameters('location2')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/firewallPolicies',parameters('policy02'))]"
+      ],
+      "properties": {
+        "priority": 300,
+        "rules": [
+          {
+            "name": "RC-01",
+            "priority": 100,
+            "ruleType": "FirewallPolicyFilterRule",
+            "action": {
+              "type": "Allow"
+            },
+            "ruleConditions": [
+              {
+                "name": "Allow-msft",
+                "protocols": [
+                  {
+                    "protocolType": "http",
+                    "port": 80
+                  },
+                  {
+                    "protocolType": "https",
+                    "port": 443
+                  }
+                ],
+                "sourceAddresses": [
+                  "*"
+                ],
+                "targetFqdns": [
+                  "*.microsoft.com"
+                ],
+                "ruleConditionType": "ApplicationRuleCondition"
+              }
+            ]
+          }
+        ]
+      }
+    },    
+    {
+      "type": "Microsoft.Network/azureFirewalls",
+      "apiVersion": "2020-05-01",
+      "name": "[parameters('fwHub01')]",
+      "location": "[parameters('location1')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/virtualHubs', parameters('hub01'))]",
+        "[resourceId('Microsoft.Network/firewallPolicies', parameters('policy01'))]"
+      ],
+      "properties": {
+        "sku": {
+          "name": "AZFW_Hub",
+          "tier": "Standard"
+        },
+        "hubIPAddresses": {
+          "publicIPs": {
+            "count": 1
+          }
+        },
+        "virtualHub": {
+          "id": "[resourceId('Microsoft.Network/virtualHubs', parameters('hub01'))]"
+        },
+        "firewallPolicy": {
+          "id": "[resourceId('Microsoft.Network/firewallPolicies', parameters('policy01'))]"
+        }
+      }
+    },
+    {
+      "type": "Microsoft.Network/azureFirewalls",
+      "apiVersion": "2020-05-01",
+      "name": "[parameters('fwHub02')]",
+      "location": "[parameters('location2')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/virtualHubs', parameters('hub02'))]",
+        "[resourceId('Microsoft.Network/firewallPolicies', parameters('policy02'))]"
+      ],
+      "properties": {
+        "sku": {
+          "name": "AZFW_Hub",
+          "tier": "Standard"
+        },
+        "hubIPAddresses": {
+          "publicIPs": {
+            "count": 1
+          }
+        },
+        "virtualHub": {
+          "id": "[resourceId('Microsoft.Network/virtualHubs', parameters('hub02'))]"
+        },
+        "firewallPolicy": {
+          "id": "[resourceId('Microsoft.Network/firewallPolicies', parameters('policy02'))]"
+        }
+      }
+    },    
+    {
+      "type": "Microsoft.Network/virtualNetworks",
+      "apiVersion": "2019-11-01",
+      "name": "[parameters('spoke01-prod')]",
+      "location": "[parameters('location1')]",
+      "properties": {
+        "addressSpace": {
+          "addressPrefixes": [
+            "[parameters('spoke01NetworkPrefix-prod')]"
+          ]
+        },
+        "subnets": [
+            {
+                "name": "default",
+                "properties": {
+                    "addressPrefix": "[parameters('spoke01SubnetPrefix-prod')]",
+                    "privateEndpointNetworkPolicies": "Enabled",
+                    "privateLinkServiceNetworkPolicies": "Enabled"
+                }
+            }
+        ],     
+        "enableDdosProtection": false,
+        "enableVmProtection": false
+      }
+    },
+    {
+      "type": "Microsoft.Network/virtualNetworks",
+      "apiVersion": "2019-11-01",
+      "name": "[parameters('spoke02-prod')]",
+      "location": "[parameters('location1')]",
+      "properties": {
+        "addressSpace": {
+          "addressPrefixes": [
+            "[parameters('spoke02NetworkPrefix-prod')]"
+          ]
+        },
+        "subnets": [
+            {
+                "name": "default",
+                "properties": {
+                    "addressPrefix": "[parameters('spoke02SubnetPrefix-prod')]",
+                    "privateEndpointNetworkPolicies": "Enabled",
+                    "privateLinkServiceNetworkPolicies": "Enabled"
+                }
+            }
+        ],        
+        "enableDdosProtection": false,
+        "enableVmProtection": false
+      }
+    },
+    {
+      "type": "Microsoft.Network/virtualNetworks",
+      "apiVersion": "2019-11-01",
+      "name": "[parameters('spoke03-prod')]",
+      "location": "[parameters('location1')]",
+      "properties": {
+        "addressSpace": {
+          "addressPrefixes": [
+            "[parameters('spoke03NetworkPrefix-prod')]"
+          ]
+        },
+        "subnets": [
+            {
+                "name": "default",
+                "properties": {
+                    "addressPrefix": "[parameters('spoke03SubnetPrefix-prod')]",
+                    "privateEndpointNetworkPolicies": "Enabled",
+                    "privateLinkServiceNetworkPolicies": "Enabled"
+                }
+            }
+        ],        
+        "enableDdosProtection": false,
+        "enableVmProtection": false
+      }
+    },
+    {
+      "type": "Microsoft.Network/virtualNetworks",
+      "apiVersion": "2019-11-01",
+      "name": "[parameters('spoke01-test')]",
+      "location": "[parameters('location2')]",
+      "properties": {
+        "addressSpace": {
+          "addressPrefixes": [
+            "[parameters('spoke01NetworkPrefix-test')]"
+          ]
+        },
+        "subnets": [
+            {
+                "name": "default",
+                "properties": {
+                    "addressPrefix": "[parameters('spoke01SubnetPrefix-test')]",
+                    "privateEndpointNetworkPolicies": "Enabled",
+                    "privateLinkServiceNetworkPolicies": "Enabled"
+                }
+            }
+        ],        
+        "enableDdosProtection": false,
+        "enableVmProtection": false
+      }
+    },
+    {
+      "type": "Microsoft.Network/virtualNetworks",
+      "apiVersion": "2019-11-01",
+      "name": "[parameters('spoke02-test')]",
+      "location": "[parameters('location2')]",
+      "properties": {
+        "addressSpace": {
+          "addressPrefixes": [
+            "[parameters('spoke02NetworkPrefix-test')]"
+          ]
+        },
+        "subnets": [
+            {
+                "name": "default",
+                "properties": {
+                    "addressPrefix": "[parameters('spoke02SubnetPrefix-test')]",
+                    "privateEndpointNetworkPolicies": "Enabled",
+                    "privateLinkServiceNetworkPolicies": "Enabled"
+                }
+            }
+        ],        
+        "enableDdosProtection": false,
+        "enableVmProtection": false
+      }
+    },
+    {
+      "type": "Microsoft.Network/virtualNetworks",
+      "apiVersion": "2019-11-01",
+      "name": "[parameters('spoke03-test')]",
+      "location": "[parameters('location2')]",
+      "properties": {
+        "addressSpace": {
+          "addressPrefixes": [
+            "[parameters('spoke03NetworkPrefix-test')]"
+          ]
+        },
+        "subnets": [
+            {
+                "name": "default",
+                "properties": {
+                    "addressPrefix": "[parameters('spoke03SubnetPrefix-test')]",
+                    "privateEndpointNetworkPolicies": "Enabled",
+                    "privateLinkServiceNetworkPolicies": "Enabled"
+                }
+            }
+        ],        
+        "enableDdosProtection": false,
+        "enableVmProtection": false
+      }
+    }
+  ]
+}

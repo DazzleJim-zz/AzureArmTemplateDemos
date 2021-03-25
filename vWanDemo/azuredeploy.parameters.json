@@ -1,0 +1,93 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "location1": {
+      "value": "australiaeast"
+    },
+    "location2": {
+      "value": "australiasoutheast"
+    },
+    "vWanName": {
+      "value": "vWAN-Demo"
+    },
+    "fwHub01": {
+      "value": "fwHub-01-prod"
+    },
+    "fwHub02": {
+      "value": "fwHub-02-test"
+    },
+    "policy01": {
+      "value": "policy-01-prod"
+    },
+    "policy02": {
+      "value": "policy-02-test"
+    },
+    "hub01": {
+      "value": "hub-01-prod"
+    },
+    "hub01NetworkPrefix": {
+      "value": "10.1.0.0/16"
+    },    
+    "hub02": {
+      "value": "hub-02-test"
+    },
+    "hub02NetworkPrefix": {
+      "value": "10.2.0.0/16"
+    },        
+    "spoke01-prod": {
+      "value": "spoke-01-prod"
+    },
+    "spoke01NetworkPrefix-prod": {
+      "value": "10.11.0.0/16"
+    },
+    "spoke01SubnetPrefix-prod": {
+      "value": "10.11.0.0/24"
+    },        
+    "spoke02-prod": {
+      "value": "spoke-02-prod"
+    },
+    "spoke02NetworkPrefix-prod": {
+      "value": "10.12.0.0/16"
+    },
+    "spoke02SubnetPrefix-prod": {
+      "value": "10.12.0.0/24"
+    },       
+    "spoke03-prod": {
+      "value": "spoke-03-prod"
+    },
+    "spoke03NetworkPrefix-prod": {
+      "value": "10.13.0.0/16"
+    },
+    "spoke03SubnetPrefix-prod": {
+      "value": "10.13.0.0/24"
+    },       
+    "spoke01-test": {
+      "value": "spoke-01-test"
+    },
+    "spoke01NetworkPrefix-test": {
+      "value": "10.21.0.0/16"
+    },
+    "spoke01SubnetPrefix-test": {
+      "value": "10.21.0.0/24"
+    },        
+    "spoke02-test": {
+      "value": "spoke-02-test"
+    },
+    "spoke02NetworkPrefix-test": {
+      "value": "10.22.0.0/16"
+    },
+    "spoke02SubnetPrefix-test": {
+      "value": "10.22.0.0/24"
+    },       
+    "spoke03-test": {
+      "value": "spoke-03-test"
+    },
+    "spoke03NetworkPrefix-test": {
+      "value": "10.23.0.0/16"
+    },
+    "spoke03SubnetPrefix-test": {
+      "value": "10.23.0.0/24"
+    }                                                     
+  }
+}
