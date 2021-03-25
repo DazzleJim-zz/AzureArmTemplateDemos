@@ -46,7 +46,7 @@
     },
     "policy02": {
       "type": "string",
-      "defaultValue": "policy-02-test"      
+      "defaultValue": "policy-02-test",     
       "metadata": {
         "description": "Name of the policy for Firewall 02."
       }
