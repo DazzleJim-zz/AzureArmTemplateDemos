@@ -32,7 +32,7 @@
     },
     "fwHub02": {
       "type": "string",
-      "defaultValue": "fwHub-02-test",      
+      "defaultValue": "fwHub-02-test",
       "metadata": {
         "description": "Name of the Firewll instance in Hub 02."
       }
