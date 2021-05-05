@@ -1,0 +1,295 @@
+{
+ "sku": {
+  "name": "A1",
+  "tier": "Standard"
+ },
+ "identity": {
+  "principalId": "7357e859-7965-4132-932f-135bbe981adf",
+  "tenantId": "72f988bf-86f1-41af-91ab-2d7cd011db47",
+  "type": "SystemAssigned"
+ },
+ "properties": {
+  "displayName": "[Preview]: New Zealand Information Security Manual",
+  "policyDefinitionId": "/providers/Microsoft.Authorization/policySetDefinitions/d1a462af-7e6d-4901-98ac-61570b4ed22a",
+  "scope": "/subscriptions/6e40a7d3-1874-4a00-aef7-6436aae48875",
+  "notScopes": [],
+  "parameters": {
+   "MembersToInclude-30f71ea1-ac77-4f26-9fc5-2d926bbd4ba7": {
+    "value": "user1;user3"
+   },
+   "MembersToExclude-69bf4abd-ca1e-4cf6-8b5a-762d42e61d4f": {
+    "value": "user2;user4"
+   },
+   "Members-3d2a3320-2a72-4c67-ac5f-caa40fbee2b2": {
+    "value": "Administrator"
+   },
+   "logAnalyticsWorkspaceId-f47b5582-33ec-4c5c-87c0-b010a6b2e917": {
+    "value": "e9e0d0f0-1a1f-4f17-a63f-3b8d731a22a6"
+   },
+   "effect-055aa869-bc98-4af8-bafc-23f1ab6ffe2c": {
+    "value": "Audit"
+   },
+   "effect-057d6cfe-9c4f-4a6d-bc60-14420ea1f1a9": {
+    "value": "AuditIfNotExists"
+   },
+   "effect-08e6af2d-db70-460a-bfe9-d5bd474ba9d6": {
+    "value": "AuditIfNotExists"
+   },
+   "effect-09024ccc-0c5f-475e-9457-b7c0d9ed487b": {
+    "value": "AuditIfNotExists"
+   },
+   "effect-0961003e-5a0a-4549-abde-af6a37f2724d": {
+    "value": "AuditIfNotExists"
+   },
+   "effect-0e60b895-3786-45da-8377-9c6b4b6ac5f9": {
+    "value": "AuditIfNotExists"
+   },
+   "effect-12430be1-6cc8-4527-a9a8-e3d38f250096": {
+    "value": "Audit"
+   },
+   "modeRequirement-12430be1-6cc8-4527-a9a8-e3d38f250096": {
+    "value": "Detection"
+   },
+   "effect-17k78e20-9358-41c9-923c-fb736d382a12": {
+    "value": "AuditIfNotExists"
+   },
+   "effect-1b7aa243-30e4-4c9e-bca8-d0d3022b634a": {
+    "value": "AuditIfNotExists"
+   },
+   "listOfImageIdToInclude-1c210e94-a481-4beb-95fa-1571b434fb04": {
+    "value": []
+   },
+   "effect-1f314764-cb73-4fc9-b863-8eca98ac36e9": {
+    "value": "AuditIfNotExists"
+   },
+   "effect-22bee202-a82f-4305-9a2a-6d7f44d4dedb": {
+    "value": "Audit"
+   },
+   "effect-26a828e1-e88f-464e-bbb3-c134a282b9de": {
+    "value": "AuditIfNotExists"
+   },
+   "IncludeArcMachines-30f71ea1-ac77-4f26-9fc5-2d926bbd4ba7": {
+    "value": "false"
+   },
+   "listOfImageIdToInclude_linux-32133ab0-ee4b-4b44-98d6-042180979d50": {
+    "value": []
+   },
+   "listOfImageIdToInclude_windows-32133ab0-ee4b-4b44-98d6-042180979d50": {
+    "value": []
+   },
+   "effect-34c877ad-507e-4c82-993e-3452a6e0ad3c": {
+    "value": "Audit"
+   },
+   "listOfImageIdToInclude-3be22e3b-d919-47aa-805e-8985dbeb0ad9": {
+    "value": []
+   },
+   "effect-3c735d8a-a4ba-4a3a-b7cf-db7754cf57f4": {
+    "value": "AuditIfNotExists"
+   },
+   "IncludeArcMachines-3d2a3320-2a72-4c67-ac5f-caa40fbee2b2": {
+    "value": "false"
+   },
+   "effect-404c3081-a854-4457-ae30-26a93ef643f9": {
+    "value": "Audit"
+   },
+   "effect-425bea59-a659-4cbb-8d31-34499bd030b8": {
+    "value": "Audit"
+   },
+   "modeRequirement-425bea59-a659-4cbb-8d31-34499bd030b8": {
+    "value": "Detection"
+   },
+   "effect-47a6b606-51aa-4496-8bb7-64b11cf66adc": {
+    "value": "AuditIfNotExists"
+   },
+   "effect-4f11b553-d42e-4e3a-89be-32ca364cad4c": {
+    "value": "AuditIfNotExists"
+   },
+   "effect-4fa4b6c0-31ca-4c0d-b10d-24b96f62a751": {
+    "value": "audit"
+   },
+   "effect-501541f7-f7e7-4cd6-868c-4190fdad3ac9": {
+    "value": "AuditIfNotExists"
+   },
+   "effect-564feb30-bf6a-4854-b4bb-0d2d2d1e6c66": {
+    "value": "Audit"
+   },
+   "effect-5744710e-cc2f-4ee8-8809-3b11e89f4bc9": {
+    "value": "AuditIfNotExists"
+   },
+   "IncludeArcMachines-5752e6d6-1206-46d8-8ab1-ecc2f71a8112": {
+    "value": "false"
+   },
+   "MinimumTLSVersion-5752e6d6-1206-46d8-8ab1-ecc2f71a8112": {
+    "value": "1.2"
+   },
+   "listOfImageIdToInclude_linux-5c3bc7b8-a64c-4e08-a9cd-7ff0f31e1138": {
+    "value": []
+   },
+   "listOfImageIdToInclude_windows-5c3bc7b8-a64c-4e08-a9cd-7ff0f31e1138": {
+    "value": []
+   },
+   "effect-5c607a2e-c700-4744-8254-d77e7c9eb5e4": {
+    "value": "AuditIfNotExists"
+   },
+   "IncludeArcMachines-69bf4abd-ca1e-4cf6-8b5a-762d42e61d4f": {
+    "value": "false"
+   },
+   "effect-6b1cbf55-e8b6-442f-ba4c-7246b6381474": {
+    "value": "AuditIfNotExists"
+   },
+   "effect-6d555dd1-86f2-4f1c-8ed7-5abae7c6cbab": {
+    "value": "Audit"
+   },
+   "effect-7796937f-307b-4598-941c-67d3a05ebfe7": {
+    "value": "AuditIfNotExists"
+   },
+   "listOfResourceTypes-7f89b1eb-583c-429a-8828-af049802c1d9": {
+    "value": []
+   },
+   "effect-86b3d65f-7626-441e-b690-81a8b71cff60": {
+    "value": "AuditIfNotExists"
+   },
+   "effect-8cb6aa8b-9e41-4f4e-aa25-089a7ac2581e": {
+    "value": "AuditIfNotExists"
+   },
+   "effect-9297c21d-2ed6-4474-b48f-163f75654ce3": {
+    "value": "AuditIfNotExists"
+   },
+   "effect-9b597639-28e4-48eb-b506-56b05d366257": {
+    "value": "AuditIfNotExists"
+   },
+   "effect-a4af4a39-4135-47fb-b175-47fbdf85311d": {
+    "value": "Audit"
+   },
+   "effect-a7aca53f-2ed4-4466-a25e-0b45ade68efd": {
+    "value": "AuditIfNotExists"
+   },
+   "effect-aa633080-8b72-40c4-a2d7-d00c03e80bed": {
+    "value": "AuditIfNotExists"
+   },
+   "effect-abfb4388-5bf4-4ad7-ba82-2cd2f41ceae9": {
+    "value": "AuditIfNotExists"
+   },
+   "effect-abfb7388-5bf4-4ad7-ba99-2cd2f41cebb9": {
+    "value": "AuditIfNotExists"
+   },
+   "effect-af6cd1bd-1635-48cb-bde7-5b15693900b9": {
+    "value": "AuditIfNotExists"
+   },
+   "effect-b02aacc0-b073-424e-8298-42b22829ee0a": {
+    "value": "AuditIfNotExists"
+   },
+   "effect-b0f33259-77d7-4c9e-aac6-3aabcfae693c": {
+    "value": "AuditIfNotExists"
+   },
+   "effect-b54ed75b-3e1a-44ac-a333-05ba39b99ff0": {
+    "value": "Audit"
+   },
+   "effect-b7ddfbdc-1260-477d-91fd-98bd9be789a6": {
+    "value": "Audit"
+   },
+   "effect-bed48b13-6647-468e-aa2f-1af1d3f4dd40": {
+    "value": "AuditIfNotExists"
+   },
+   "IncludeArcMachines-bed48b13-6647-468e-aa2f-1af1d3f4dd40": {
+    "value": "false"
+   },
+   "NotAvailableMachineState-bed48b13-6647-468e-aa2f-1af1d3f4dd40": {
+    "value": "Non-Compliant"
+   },
+   "effect-c3f317a7-a95c-4547-b7e7-11017ebdf2fe": {
+    "value": "AuditIfNotExists"
+   },
+   "effect-cb510bfd-1cba-4d9f-a230-cb0976f4bb71": {
+    "value": "AuditIfNotExists"
+   },
+   "effect-e1e5fd5d-3e4c-4ce1-8661-7d1873ae6b15": {
+    "value": "AuditIfNotExists"
+   },
+   "effect-e3576e28-8b17-4677-84c3-db2990658d64": {
+    "value": "AuditIfNotExists"
+   },
+   "listOfAllowedLocations-e56962a6-4747-49cd-b67b-bf8b01975c4c": {
+    "value": []
+   },
+   "listOfAllowedLocations-e765b5de-1225-4ba3-bd56-1ac6695af988": {
+    "value": []
+   },
+   "effect-e8cbc669-f12d-49eb-93e7-9273119e9933": {
+    "value": "AuditIfNotExists"
+   },
+   "effect-e9c8d085-d9cc-4b17-9cdc-059f1f01f19e": {
+    "value": "AuditIfNotExists"
+   },
+   "effect-ea53dbee-c6c9-4f0e-9f9e-de0039b78023": {
+    "value": "AuditIfNotExists"
+   },
+   "IncludeArcMachines-ea53dbee-c6c9-4f0e-9f9e-de0039b78023": {
+    "value": "false"
+   },
+   "effect-ebb62a0c-3560-49e1-89ed-27e074e9f8ad": {
+    "value": "AuditIfNotExists"
+   },
+   "effect-ef2a8f2a-b3d9-49cd-a8a8-9a3aaaf647d9": {
+    "value": "AuditIfNotExists"
+   },
+   "effect-f0e6e85b-9b9f-4a4b-b67b-f730d42f1b0b": {
+    "value": "AuditIfNotExists"
+   },
+   "effect-f2143251-70de-4e81-87a8-36cee5a2f29d": {
+    "value": "AuditIfNotExists"
+   },
+   "EnforcePasswordHistory-f2143251-70de-4e81-87a8-36cee5a2f29d": {
+    "value": "24"
+   },
+   "IncludeArcMachines-f2143251-70de-4e81-87a8-36cee5a2f29d": {
+    "value": "false"
+   },
+   "MaximumPasswordAge-f2143251-70de-4e81-87a8-36cee5a2f29d": {
+    "value": "1,70"
+   },
+   "MinimumPasswordAge-f2143251-70de-4e81-87a8-36cee5a2f29d": {
+    "value": "1"
+   },
+   "MinimumPasswordLength-f2143251-70de-4e81-87a8-36cee5a2f29d": {
+    "value": "14"
+   },
+   "PasswordMustMeetComplexityRequirements-f2143251-70de-4e81-87a8-36cee5a2f29d": {
+    "value": "1"
+   },
+   "effect-f6de0be7-9a8a-4b8a-b349-43cf02d22f7c": {
+    "value": "AuditIfNotExists"
+   },
+   "effect-f6ec09a3-78bf-4f8f-99dc-6c77182d0f99": {
+    "value": "AuditIfNotExists"
+   },
+   "IncludeArcMachines-f6ec09a3-78bf-4f8f-99dc-6c77182d0f99": {
+    "value": "false"
+   },
+   "effect-f8456c1c-aa66-4dfb-861a-25d127b775c9": {
+    "value": "AuditIfNotExists"
+   },
+   "effect-f9d614c5-c173-4d56-95a7-b4437057d193": {
+    "value": "AuditIfNotExists"
+   },
+   "effect-fc5e4038-4584-4632-8c85-c0448d374b2c": {
+    "value": "AuditIfNotExists"
+   },
+   "effect-feedbf84-6b99-488c-acc2-71c829aa5ffc": {
+    "value": "AuditIfNotExists"
+   }
+  },
+  "description": "",
+  "metadata": {
+   "createdBy": "5f1154c4-f6c7-4f3a-be98-749ca1aae20d",
+   "createdOn": "2021-04-19T22:33:42.7326617Z",
+   "updatedBy": "5f1154c4-f6c7-4f3a-be98-749ca1aae20d",
+   "updatedOn": "2021-05-05T00:06:15.7525349Z"
+  },
+  "enforcementMode": "Default"
+ },
+ "id": "/subscriptions/6e40a7d3-1874-4a00-aef7-6436aae48875/providers/Microsoft.Authorization/policyAssignments/2e2b5cee5220212d8ae37afa3fe4e65462d5f64444d01b387c0bc75cde4d9007",
+ "type": "Microsoft.Authorization/policyAssignments",
+ "name": "2e2b5cee5220212d8ae37afa3fe4e65462d5f64444d01b387c0bc75cde4d9007",
+ "location": "australiaeast"
+}
